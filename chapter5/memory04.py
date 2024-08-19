@@ -20,10 +20,10 @@ conversation = ConversationChain(
     memory = ConversationEntityMemory (llm = llm),
 )
 
-conversation.predict(
+print(conversation.predict(
     input="Teddy dan Shirley adalah rekan kerja di sebuah perusahaan. "
           "Teddy adalah seorang pengembang dan Shirley adalah seorang desainer. "
           "Mereka baru saja berhenti dari pekerjaan mereka di perusahaan dan berencana untuk memulai perusahaan mereka sendiri."
-)
+))
 
 print(conversation.memory.entity_store.store)

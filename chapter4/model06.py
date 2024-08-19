@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_teddynote import logging
+from langchain_altero import logging
 from huggingface_hub import login
 from langchain.prompts import PromptTemplate
 import os

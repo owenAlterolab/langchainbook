@@ -1,6 +1,6 @@
 # File konfigurasi untuk mengelola API KEY sebagai variabel lingkungan
 from dotenv import load_dotenv
-from langchain_teddynote import logging
+from langchain_altero import logging
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
@@ -58,6 +58,14 @@ res1 = chain_with_history.invoke(
     config={"configurable": {"session_id": "abc123"}},
 )
 print(res1)
+
+res3 = chain_with_history.invoke(
+    # Memasukkan pertanyaan
+    {"question": "Apa nama saya tadi?"},
+    # Mencatat percakapan berdasarkan ID sesi.
+    config={"configurable": {"session_id": "abc123"}},
+)
+print(res3)
 
 res2 = chain_with_history.invoke(
     # Memasukkan pertanyaan

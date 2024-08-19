@@ -2,8 +2,8 @@
 from dotenv import load_dotenv
 import faiss
 from langchain_openai import OpenAIEmbeddings
-from langchain.docstore import InMemoryDocstore
-from langchain.vectorstores import FAISS
+from langchain_community.docstore import InMemoryDocstore
+from langchain_community.vectorstores import FAISS
 from langchain.memory import VectorStoreRetrieverMemory
 
 

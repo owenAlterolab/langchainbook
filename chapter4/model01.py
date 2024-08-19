@@ -26,13 +26,13 @@ answer = gpt.stream("apa ibukota negara indonesia?")
 stream_response(answer)
 
 # # ChatAnthropic 객체를 생성합니다.
-# anthropic = ChatAnthropic(model_name="claude-3-5-sonnet-20240620")
+anthropic = ChatAnthropic(model_name="claude-3-5-sonnet-20240620")
 
-# # 스트리밍 출력을 위하여 invoke() 대신 stream()을 사용합니다.
-# answer = anthropic.stream("사랑이 뭔가요?")
+# 스트리밍 출력을 위하여 invoke() 대신 stream()을 사용합니다.
+answer = anthropic.stream("apa ibukota negara indonesia?")
 
-# # 답변 출력
-# stream_response(answer)
+# 답변 출력
+stream_response(answer)
 
 
 # cohere = ChatCohere(temperature=0)

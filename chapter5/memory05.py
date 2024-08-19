@@ -1,7 +1,7 @@
 # File konfigurasi untuk mengelola API KEY sebagai variabel lingkungan
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-from langchain.memory import ConversationKGMemory
+from langchain_community.memory.kg import ConversationKGMemory
 from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import ConversationChain
 
@@ -41,8 +41,9 @@ conversation_with_kg = ConversationChain(
     llm=llm, prompt=prompt, memory=ConversationKGMemory(llm=llm)
 )
 
-conversation_with_kg.predict(
+res = conversation_with_kg.predict(
     input="Nama saya Teddy, Siti Rahma adalah rekan kerja saya, dan dia adalah manager baru di perusahaan kami."
 )
+print(res)
 
 print(conversation_with_kg.memory.load_memory_variables({"input": "siapa Siti rahma?"}))

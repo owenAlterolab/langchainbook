@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_teddynote import logging
+from langchain_altero import logging
 import os
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -49,6 +49,13 @@ with open("fruit_chain.pkl", "rb") as f:
 
     # Jalankan rantai.
     print(chain_from_file.invoke({"buah": "apel"}))
+
+    
+load_chain = load(
+    loaded_chain, secrets_map={"OPENAI_API_KEY": os.environ["OPENAI_API_KEY"]}
+)
+
+print(load_chain.invoke({"buah": "semangka"}))
 
 
 with open("fruit_chain.json", "r") as fp:

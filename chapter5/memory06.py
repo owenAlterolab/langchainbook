@@ -54,7 +54,7 @@ memory.save_context(
     },
 )
 
-# print(memory.load_memory_variables({})["history"])
+print(memory.load_memory_variables({})["history"])
 
 llm = ChatOpenAI()
 memory = ConversationSummaryBufferMemory(
@@ -62,6 +62,15 @@ memory = ConversationSummaryBufferMemory(
     max_token_limit=200,  # Mengatur panjang token yang menjadi dasar ringkasan.
     return_messages=True,
 )
+
+memory.save_context(
+    inputs={"human": "Berapa harga paket perjalanan ke Eropa?"},
+    outputs={
+        "ai": "Harga dasar untuk paket 14 hari 15 malam di Eropa adalah 3.500 euro. Harga ini sudah termasuk biaya penerbangan, akomodasi hotel, dan biaya masuk ke objek wisata yang ditentukan. Biaya tambahan dapat bervariasi tergantung pada tur opsional yang Anda pilih atau biaya pribadi."
+    },
+)
+print(memory.load_memory_variables({})["history"])
+print("===")
 
 memory.save_context(
     inputs={"human": "Apa saja tempat wisata utama yang akan dikunjungi selama perjalanan?"},

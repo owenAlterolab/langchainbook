@@ -23,8 +23,9 @@ chat_message_history.add_user_message(
 )
 # Menambahkan pesan dari AI.
 chat_message_history.add_ai_message("Halo Teddy, senang bertemu denganmu. Mari kita bekerja sama dengan baik!")
-# print(chat_message_history.messages)
+print(chat_message_history.messages)
 
+# apply to chain
 prompt = ChatPromptTemplate.from_messages(
     [
         # Pesan sistem

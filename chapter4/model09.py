@@ -1,8 +1,8 @@
-from langchain_teddynote import logging
+from langchain_altero import logging
 from langchain_community.chat_models import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_teddynote.messages import stream_response
+from langchain_altero.messages import stream_response
 import asyncio
 import base64
 from io import BytesIO
@@ -26,15 +26,15 @@ chain = prompt | llm | StrOutputParser()
 jawaban = chain.stream({"topik": "deep learning"})
 
 # keluaran streaming
-#stream_response(jawaban)
+stream_response(jawaban)
 
-# async def test():
-#     async for chunks in chain.astream(
-#         {"topik": "Google"}
-#     ):  # Menjalankan chain secara asinkron dan mengembalikan hasil dalam bentuk chunk.
-#         print(chunks, end="", flush=True)  # Mencetak setiap chunk.
+async def test():
+    async for chunks in chain.astream(
+        {"topik": "Google"}
+    ):  # Menjalankan chain secara asinkron dan mengembalikan hasil dalam bentuk chunk.
+        print(chunks, end="", flush=True)  # Mencetak setiap chunk.
 
-# asyncio.run(test())
+asyncio.run(test())
 
 llm = ChatOllama(
     model="llama3.1:8b",  # Menentukan model bahasa yang akan digunakan.
@@ -47,7 +47,7 @@ prompt = "Berikan 10 tempat wisata di Jawa timur. kunci: `places`. respons dalam
 
 # Memanggil chain
 response = llm.invoke(prompt)
-# print(response.content)  # Mencetak respons yang dihasilkan.
+print(response.content)  # Mencetak respons yang dihasilkan.
 
 
 def convert_to_base64(pil_image):
@@ -108,9 +108,9 @@ llm = ChatOllama(model="llava:7b", temperature=0)
 # Membuat chain dengan menghubungkan fungsi prompt, model bahasa, dan parser output.
 chain = prompt_func | llm | StrOutputParser()
 
-query_chain = chain.invoke(  # Memanggil chain untuk menjalankan query.
-    # Mengirimkan teks dan gambar.
-    {"text": "Deskripsikan gambar dalam poin-poin", "image": image_b64}
-)
+# query_chain = chain.invoke(  # Memanggil chain untuk menjalankan query.
+#     # Mengirimkan teks dan gambar.
+#     {"text": "Deskripsikan gambar dalam poin-poin", "image": image_b64}
+# )
 
-print(query_chain)  # Mencetak hasil query.
+# print(query_chain)  # Mencetak hasil query.

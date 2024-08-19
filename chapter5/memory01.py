@@ -6,7 +6,7 @@ from langchain.chains import ConversationChain
 load_dotenv()
 # memory = ConversationBufferMemory()
 # Mengatur return_messages = True akan mengembalikan objek HumanMessage dan AIMessage.
-memory = ConversationBufferMemory(return_messages=True)
+memory = ConversationBufferMemory(return_messages=False)
 
 memory.save_context(
     inputs = {
@@ -16,6 +16,8 @@ memory.save_context(
         "ai": "Halo, kami senang mendengar Anda ingin membuka rekening. Pertama, bisakah Anda menyiapkan kartu identitas untuk memverifikasi identitas Anda?"
     },
 )
+
+print(memory.load_memory_variables({}))
 
 memory.save_context(
     inputs={"human": "Ya, saya memiliki ID saya, sekarang apa yang harus saya lakukan?"},
@@ -37,8 +39,7 @@ memory.save_context(
     },
 )
 
-# print(memory.load_memory_variables({}))
-#print(memory.load_memory_variables({})["history"])
+print(memory.load_memory_variables({})["history"])
 
 #conversation chain
 llm = ChatOpenAI(temperature=0)

@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
-from langchain_teddynote import logging
-from langchain_teddynote.models import MultiModal
-from langchain_teddynote.messages import stream_response
+from langchain_altero import logging
+from langchain_altero.models import MultiModal
+from langchain_altero.messages import stream_response
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import (
     ChatGoogleGenerativeAI,

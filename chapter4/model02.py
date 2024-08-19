@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_teddynote import logging
+from langchain_altero import logging
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_community.cache import SQLiteCache
@@ -20,14 +20,14 @@ prompt = PromptTemplate.from_template("Berikan saya ringkasan {negara} dalam 200
 chain = prompt | llm
 
 # Membuat direktori cache.
-if not os.path.exists("cache"):
-    os.makedirs("cache")
+# if not os.path.exists("cache"):
+#     os.makedirs("cache")
 
 # Gunakan SQLiteCache.
 # set_llm_cache(SQLiteCache(database_path="cache/llm_cache.db"))
 
 #inMemoryCache
-set_llm_cache(InMemoryCache())
+# set_llm_cache(InMemoryCache())
 
 response = chain.invoke({"negara": "indonesia"})
 print(response.content)

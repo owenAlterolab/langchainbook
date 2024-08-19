@@ -29,7 +29,8 @@ runnable = RunnablePassthrough.assign(
     | itemgetter("chat_history") # Masukkan yang sama dengan memory_key.
 )
 
-runnable.invoke({"input": "hi"})
+res = runnable.invoke({"input": "hi"})
+print(res)
 
 chain = runnable | prompt | model
 
@@ -37,7 +38,7 @@ chain = runnable | prompt | model
 response = chain.invoke({"input": "Senang bertemu dengan Anda. Nama saya Teddy."})
 print(response.content)  # Mencetak respons yang dihasilkan.
 
-memory.load_memory_variables({})
+print(memory.load_memory_variables({}))
 
 # Menyimpan data input dan konten respons ke dalam memori.
 memory.save_context(
