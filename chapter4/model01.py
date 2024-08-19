@@ -25,7 +25,6 @@ answer = gpt.stream("apa ibukota negara indonesia?")
 # 답변 출력
 stream_response(answer)
 
-# TODO: NEED anthropic API KEY
 # # ChatAnthropic 객체를 생성합니다.
 # anthropic = ChatAnthropic(model_name="claude-3-5-sonnet-20240620")
 
@@ -36,7 +35,6 @@ stream_response(answer)
 # stream_response(answer)
 
 
-# TODO: NEED COHERE API KEY
 # cohere = ChatCohere(temperature=0)
 
 # # 스트리밍 출력을 위하여 invoke() 대신 stream()을 사용합니다.
@@ -45,7 +43,7 @@ stream_response(answer)
 # # 답변 출력
 # stream_response(answer)
 
-# TODO: NEED UPSTAGE_API_KEY
+
 # # ChatUpstage 객체를 생성합니다.
 # upstage = ChatUpstage()
 
