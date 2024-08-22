@@ -10,11 +10,11 @@ load_dotenv()
 warnings.filterwarnings("ignore")
 
 texts = [
-    "Halo, senang bertemu denganmu.",
-    "LangChain menyederhanakan proses membangun aplikasi dengan model bahasa besar.",
-    "Tutorial LangChain dalam bahasa Korea disusun berdasarkan dokumentasi resmi LangChain, cookbook, dan berbagai contoh praktis untuk membantu pengguna memanfaatkan LangChain dengan lebih mudah dan efektif.",
-    "LangChain menyederhanakan proses pembangunan aplikasi menggunakan model bahasa besar.",
-    "Retrieval-Augmented Generation (RAG) adalah teknik efektif untuk meningkatkan respons AI.",
+    "Headphone Bluetooth Nirkabel dengan Pembatalan Kebisingan.",
+    "Speaker Bluetooth Tahan Air Portabel dengan Baterai 20 jam.",
+    "Kursi Kantor Ergonomis dengan Dukungan Lumbar dan Ketinggian yang Dapat Disesuaikan.",
+    "TV Smart 4K Ultra HD dengan Layanan Streaming dan Kontrol Suara.",
+    "Meja Berdiri Elektrik dengan Tinggi yang Dapat Disetel Memori."
 ]
 
 model_name = "intfloat/multilingual-e5-large-instruct"
@@ -26,7 +26,7 @@ hf_embeddings = HuggingFaceEndpointEmbeddings(
 )
 
 embedded_documents = hf_embeddings.embed_documents(texts)
-embedded_query = hf_embeddings.embed_query("Tolong beri tahu saya tentang LangChain.")
+embedded_query = hf_embeddings.embed_query("Saya membutuhkan produk untuk ruangan kantor saya")
 
 print("[HuggingFace Endpoint Embedding]")
 print(f"Model: \t\t{model_name}")
@@ -37,7 +37,7 @@ np.array(embedded_query) @ np.array(embedded_documents).T
 sorted_idx = (np.array(embedded_query) @ np.array(embedded_documents).T).argsort()[::-1]
 sorted_idx
 
-print("[Query] Tolong beri tahu saya tentang LangChain.\n====================================")
+print("[Query] SSaya membutuhkan produk untuk ruangan kantor saya\n====================================")
 for i, idx in enumerate(sorted_idx):
     print(f"[{i}] {texts[idx]}")
     print()

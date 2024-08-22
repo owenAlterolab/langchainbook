@@ -1,0 +1,49 @@
+Keyword: Word Embeddings
+Definition: Word embeddings are vector representations of words in a continuous vector space, where semantically similar words are mapped closer together. They are commonly used in NLP tasks to capture the semantic meaning of words.
+Example: If a user searches for "king", the word embeddings might return similar words like "queen", "monarch", or "prince".
+Related Keywords: Vector Space Model, Deep Learning, Semantic Analysis
+
+Keyword: Named Entity Recognition (NER)
+Definition: Named Entity Recognition is an NLP technique that identifies and classifies proper nouns in text, such as the names of people, organizations, locations, dates, and other entities.
+Example: A search for "Barack Obama visited Paris" will identify "Barack Obama" as a person and "Paris" as a location.
+Related Keywords: Information Extraction, Entity Recognition, Machine Learning
+
+Keyword: Sentiment Analysis
+Definition: Sentiment Analysis is the process of determining the sentiment or emotional tone behind a body of text, typically classifying it as positive, negative, or neutral.
+Example: When analyzing customer reviews, sentiment analysis can classify the sentence "I love this product!" as positive sentiment.
+Related Keywords: Opinion Mining, Text Classification, Emotion Detection
+
+Keyword: Text Summarization
+Definition: Text summarization is the process of creating a concise summary of a longer text document while preserving its key information and overall meaning.
+Example: A search for a long article on climate change can return a brief summary highlighting the main points, such as "Rising temperatures, sea level rise, and global warming impacts."
+Related Keywords: Content Generation, Information Retrieval, Automatic Summarization
+
+Keyword: Language Translation
+Definition: Language Translation in NLP refers to the automatic conversion of text from one language to another, using models trained on large multilingual datasets.
+Example: If a user searches for "Translate 'Good morning' to Spanish", the system returns "Buenos días".
+Related Keywords: Machine Translation, Bilingual Corpus, Neural Networks
+
+Keyword: Tokenization
+Definition: Tokenization is the process of breaking down text into smaller units, such as words, phrases, or symbols, which are then used as input for various NLP tasks.
+Example: Given the sentence "Natural Language Processing is fun", tokenization will split it into ["Natural", "Language", "Processing", "is", "fun"].
+Related Keywords: Text Processing, Lexical Analysis, Sentence Segmentation
+
+Keyword: Part-of-Speech Tagging (POS Tagging)
+Definition: POS Tagging is the process of labeling words in a text with their respective parts of speech, such as nouns, verbs, adjectives, etc.
+Example: In the sentence "The quick brown fox jumps over the lazy dog", POS tagging identifies "fox" as a noun and "jumps" as a verb.
+Related Keywords: Syntactic Analysis, Morphology, Linguistics
+
+Keyword: Dependency Parsing
+Definition: Dependency Parsing is the process of analyzing the grammatical structure of a sentence and establishing relationships between "head" words and words which modify those heads.
+Example: In the sentence "The cat sat on the mat", dependency parsing would show that "sat" is the head verb, with "cat" as the subject and "mat" as the object.
+Related Keywords: Syntax, Tree Structure, Grammar Analysis
+
+Keyword: Coreference Resolution
+Definition: Coreference Resolution is the task of identifying when two or more expressions in a text refer to the same entity.
+Example: In the sentences "John went to the store. He bought milk", coreference resolution identifies that "He" refers to "John".
+Related Keywords: Pronoun Resolution, Entity Linking, Anaphora
+
+Keyword: Text Classification
+Definition: Text Classification is the process of assigning predefined categories to a text based on its content.
+Example: An email filtering system might classify emails as "Spam" or "Not Spam" based on their content.
+Related Keywords: Document Categorization, Text Mining, Supervised Learning
