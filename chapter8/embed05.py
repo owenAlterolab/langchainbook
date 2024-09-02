@@ -24,7 +24,7 @@ query = "Saya membutuhkan produk untuk memutar musik"
 # Embedding kueri
 embedded_query = ollama_embeddings.embed_query(query)
 # Menampilkan dimensi embedding
-len(embedded_query)
+print(len(embedded_query))
 
 # Embedding dokumen
 embedded_documents = ollama_embeddings.embed_documents(texts)

@@ -24,7 +24,8 @@ cached_embedder = CacheBackedEmbeddings.from_bytes_store(
 )
 
 # Ambil kunci secara berurutan dari penyimpanan.
-list(store.yield_keys())
+print("list(store.yield_keys())")
+print(list(store.yield_keys()))
 
 # Memuat dokumen
 raw_documents = TextLoader("/Users/mini16gboffice1/StudioProjects/owen/python/langchainbook/chapter8/data/appendix-keywords.txt").load()

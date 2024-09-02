@@ -6,9 +6,9 @@ from langchain_altero.indonesia import stopwords
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import glob
-from langchain_teddynote.community.pinecone import preprocess_documents
+from langchain_altero.community.pinecone import preprocess_documents
 import os
-from langchain_teddynote.community.pinecone import create_index
+from langchain_altero.community.pinecone import create_index
 
 
 # Memuat informasi API KEY
@@ -32,16 +32,17 @@ for file in files:
     loader = PyMuPDFLoader(file)
     split_docs.extend(loader.load_and_split(text_splitter))
 
+
 # memeriksa jumlah dokumen
 docs_len1 = len(split_docs)
-print(docs_len1)
+print(f"split docs: {docs_len1}")
 
 check_page_content = split_docs[0].page_content
-print(check_page_content)
+print(f"page content: {check_page_content}")
 
 # Periksa metadata.
 check_metadata = split_docs[0].metadata
-print(check_metadata)
+print(f"metadata: {check_metadata}")
 
 contents, metadatas = preprocess_documents(
     split_docs=split_docs,
@@ -199,7 +200,7 @@ for result in search_results:
 
 print("\n========  RETRIEVE 1, ALPHA 1  ============\n")
 search_results = pinecone_retriever.invoke(
-    "Anthropic", search_kwargs={"alpha": 1, "k": 1}
+    "Language Translation", search_kwargs={"alpha": 1, "k": 1}
 )
 for result in search_results:
     print(result.page_content)
@@ -209,7 +210,7 @@ for result in search_results:
 
 print("\n========  RETRIEVE 1, ALPHA 0  ============\n")
 search_results = pinecone_retriever.invoke(
-    "Anthropic", search_kwargs={"alpha": 0, "k": 1}
+    "Tokenization", search_kwargs={"alpha": 0, "k": 1}
 )
 for result in search_results:
     print(result.page_content)
@@ -220,7 +221,7 @@ for result in search_results:
 print("\n========  RETRIEVE Filtered ============\n")
 # Hasil Eksekusi
 search_results = pinecone_retriever.invoke(
-    "Berikan saya informasi tentang peluncuran Claude oleh Anthropic",
+    "Berikan saya informasi tentang Text Classification",
     search_kwargs={"filter": {"page": {"$lt": 5}}, "k": 2},
 )
 for result in search_results:
@@ -232,9 +233,9 @@ for result in search_results:
 print("\n========  RETRIEVE Filter by source ============\n")
 # Hasil Eksekusi
 search_results = pinecone_retriever.invoke(
-    "Berikan saya informasi tentang peluncuran Claude 3.5 oleh Anthropic",
+    "Berikan saya informasi tentang Text Classification",
     search_kwargs={
-        "filter": {"source": {"$eq": "SPRi AI Brief_7월호_산업동향.pdf"}},
+        "filter": {"source": {"$eq": "finance-keywords.pdf"}},
         "k": 3,
     },
 )

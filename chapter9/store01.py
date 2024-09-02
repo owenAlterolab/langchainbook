@@ -431,4 +431,4 @@ class ImageRetriever:
 retriever = image_db.as_retriever(search_kwargs={"k": 3})
 image_retriever = ImageRetriever(retriever)
 
-image_retriever.invoke("A Dog on the street")
+# image_retriever.invoke("A Dog on the street")

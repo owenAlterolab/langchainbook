@@ -1,0 +1,77 @@
+Pencarian Semantik
+
+Definisi: Pencarian semantik adalah metode pencarian yang melampaui pencocokan kata kunci sederhana untuk memahami makna dari kueri pengguna dan mengembalikan hasil yang relevan.
+Contoh: Jika seorang pengguna mencari "planet tata surya", sistem akan mengembalikan informasi tentang planet terkait, seperti "Jupiter", "Mars", dll.
+Kata Kunci Terkait: Pemrosesan Bahasa Alami, Algoritma Pencarian, Penambangan Data
+
+Embedding
+
+Definisi: Embedding adalah proses mengubah data teks seperti kata atau kalimat menjadi vektor berdimensi rendah yang berkelanjutan. Ini memungkinkan komputer untuk memahami dan memproses teks.
+Contoh: Kata "apel" dapat direpresentasikan sebagai vektor seperti [0,65, -0,23, 0,17].
+Kata Kunci Terkait: Pemrosesan Bahasa Alami, Vektorisasi, Pembelajaran Mendalam
+
+Token
+
+Definisi: Token adalah istilah yang merujuk pada pembagian teks menjadi unit-unit yang lebih kecil. Unit ini biasanya berupa kata, kalimat, atau frasa.
+Contoh: Kalimat "Saya pergi ke sekolah" dibagi menjadi "Saya", "pergi", "ke", "sekolah".
+Kata Kunci Terkait: Tokenisasi, Pemrosesan Bahasa Alami, Analisis Sintaksis
+
+Tokenizer
+
+Definisi: Tokenizer adalah alat yang digunakan untuk membagi data teks menjadi token. Ini digunakan dalam pemrosesan bahasa alami untuk praproses data.
+Contoh: Kalimat "Saya suka pemrograman." dibagi menjadi ["Saya", "suka", "pemrograman", "."].
+Kata Kunci Terkait: Tokenisasi, Pemrosesan Bahasa Alami, Analisis Sintaksis
+
+VectorStore
+
+Definisi: VectorStore adalah sistem yang menyimpan data yang telah diubah menjadi format vektor. Ini digunakan untuk pencarian, klasifikasi, dan analisis data lainnya.
+Contoh: Vektor embedding kata-kata disimpan dalam basis data sehingga dapat diakses dengan cepat.
+Kata Kunci Terkait: Embedding, Basis Data, Vektorisasi
+
+SQL
+
+Definisi: SQL (Structured Query Language) adalah bahasa pemrograman yang digunakan untuk mengelola data di dalam basis data. Ini memungkinkan berbagai operasi seperti pencarian, modifikasi, penyisipan, dan penghapusan data.
+Contoh: SELECT * FROM users WHERE age > 18; akan menampilkan informasi pengguna yang berusia lebih dari 18 tahun.
+Kata Kunci Terkait: Basis Data, Query, Manajemen Data
+
+CSV
+
+Definisi: CSV (Comma-Separated Values) adalah format file yang digunakan untuk menyimpan data, di mana setiap nilai data dipisahkan oleh koma. Ini sering digunakan untuk menyimpan dan menukar data dalam bentuk tabel.
+Contoh: File CSV dengan header nama, usia, pekerjaan dapat berisi data seperti John Doe, 30, Developer.
+Kata Kunci Terkait: Format Data, Pengolahan File, Pertukaran Data
+
+JSON
+
+Definisi: JSON (JavaScript Object Notation) adalah format pertukaran data yang ringan yang menggunakan teks yang mudah dibaca oleh manusia dan mesin untuk mewakili objek data.
+Contoh: {"nama": "John Doe", "usia": 30, "pekerjaan": "Developer"} adalah data dalam format JSON.
+Kata Kunci Terkait: Pertukaran Data, Pengembangan Web, API
+
+Transformer
+
+Definisi: Transformer adalah jenis model pembelajaran mendalam yang digunakan dalam pemrosesan bahasa alami, terutama untuk terjemahan, peringkasan, dan pembuatan teks. Ini didasarkan pada mekanisme Attention.
+Contoh: Google Translate menggunakan model Transformer untuk menerjemahkan berbagai bahasa.
+Kata Kunci Terkait: Pembelajaran Mendalam, Pemrosesan Bahasa Alami, Attention
+
+HuggingFace
+
+Definisi: HuggingFace adalah perpustakaan yang menyediakan berbagai model pra-latihan dan alat untuk pemrosesan bahasa alami. Ini membantu peneliti dan pengembang dalam melakukan tugas NLP dengan lebih mudah.
+Contoh: Perpustakaan Transformers dari HuggingFace dapat digunakan untuk analisis sentimen, pembuatan teks, dan tugas lainnya.
+Kata Kunci Terkait: Pemrosesan Bahasa Alami, Pembelajaran Mendalam, Perpustakaan
+
+Digital Transformation
+
+Definisi: Transformasi digital adalah proses inovasi layanan, budaya, dan operasi perusahaan dengan memanfaatkan teknologi. Fokusnya adalah meningkatkan model bisnis dan daya saing melalui teknologi digital.
+Contoh: Penggunaan cloud computing untuk menyimpan dan memproses data oleh perusahaan adalah contoh transformasi digital.
+Kata Kunci Terkait: Inovasi, Teknologi, Model Bisnis
+
+Crawling
+
+Definisi: Crawling adalah proses mengunjungi halaman web secara otomatis untuk mengumpulkan data. Ini sering digunakan dalam optimasi mesin pencari atau analisis data.
+Contoh: Mesin pencari Google mengunjungi situs web di internet untuk mengumpulkan konten dan membuat indeks, yang dikenal sebagai crawling.
+Kata Kunci Terkait: Pengumpulan Data, Web Scraping, Mesin Pencari
+
+Word2Vec
+
+Definisi: Word2Vec adalah teknik pemrosesan bahasa alami yang memetakan kata-kata ke dalam ruang vektor untuk merepresentasikan hubungan semantik antar kata. Teknik ini menghasilkan vektor berdasarkan kesamaan konteks kata.
+Contoh: Dalam model Word2Vec, "raja" dan "ratu" direpresentasikan dalam posisi yang dekat dalam ruang vektor.
+Kata Kunci Terkait: Pemrosesan Bahasa Alami, Embedding, Kesamaan Semantik
