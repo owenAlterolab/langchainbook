@@ -30,8 +30,8 @@ logging.langsmith("CH09-VectorStores")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=0)
 
 # Memuat file teks -> Mengubahnya ke dalam bentuk List[Document]
-loader1 = TextLoader("/Users/mini16gboffice1/StudioProjects/owen/python/langchainbook/chapter9/data/nlp-keywords.txt")
-loader2 = TextLoader("/Users/mini16gboffice1/StudioProjects/owen/python/langchainbook/chapter9/data/finance-keywords.txt")
+loader1 = TextLoader("chapter9/data/nlp-keywords.txt")
+loader2 = TextLoader("chapter9/data/finance-keywords.txt")
 
 # Membagi dokumen
 split_doc1 = loader1.load_and_split(text_splitter)
