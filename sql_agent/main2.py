@@ -124,6 +124,7 @@ def chatbot(state: State):
 
         ("human", "How many employees are there?"),
         ("ai", "SELECT COUNT(*) FROM Employee;"),
+        
         ("human", state['messages'][0].content)
     ])
 
@@ -221,7 +222,7 @@ workflow.add_edge("execute_query", END)
 
 graph = workflow.compile()
 
-for events in graph.stream({"messages": [("user", "Which sales agent made the most in sales in 2009?")]}):
+for events in graph.stream({"messages": [("user", "What tracks have the genre 'opera'?")]}):
         for value in events.values():
             last_msg = value["messages"][-1]
 

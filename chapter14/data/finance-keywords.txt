@@ -1,0 +1,49 @@
+Keyword: Asset Allocation
+Definition: Asset allocation is the process of distributing investments among various asset categories, such as stocks, bonds, and cash, to optimize risk and return.
+Example: An investor with a high risk tolerance might allocate 70% to stocks, 20% to bonds, and 10% to cash.
+Related Keywords: Portfolio Management, Investment Strategy, Risk Management
+
+Keyword: Diversification
+Definition: Diversification is an investment strategy that involves spreading investments across different asset classes or sectors to reduce risk.
+Example: By investing in both technology stocks and healthcare stocks, an investor diversifies their portfolio and reduces the impact of poor performance in one sector.
+Related Keywords: Risk Reduction, Portfolio Strategy, Asset Allocation
+
+Keyword: Compound Interest
+Definition: Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods.
+Example: If you invest $1,000 at an annual interest rate of 5%, compounded annually, after 5 years, you will have $1,276.28.
+Related Keywords: Savings, Investment Growth, Time Value of Money
+
+Keyword: Equity
+Definition: Equity represents ownership in a company or asset, typically measured in shares, which can increase in value over time or provide dividends.
+Example: If you own 100 shares of a company's stock, you have equity in that company, and your shares may appreciate in value as the company grows.
+Related Keywords: Stocks, Shareholder, Ownership
+
+Keyword: Fixed Income
+Definition: Fixed income refers to investments that provide regular, fixed returns, such as bonds or certificates of deposit.
+Example: Purchasing a government bond that pays a 3% annual interest rate for 10 years is an example of a fixed income investment.
+Related Keywords: Bonds, Interest Payments, Safe Investments
+
+Keyword: Liquidity
+Definition: Liquidity refers to how easily an asset can be converted into cash without affecting its market price.
+Example: Cash and money market funds are highly liquid assets, while real estate is considered less liquid because it can take time to sell.
+Related Keywords: Marketability, Cash Flow, Asset Management
+
+Keyword: Market Capitalization
+Definition: Market capitalization, or market cap, is the total market value of a company's outstanding shares of stock.
+Example: A company with 1 million shares trading at $50 per share has a market capitalization of $50 million.
+Related Keywords: Stock Market, Valuation, Public Companies
+
+Keyword: Yield
+Definition: Yield is the income return on an investment, typically expressed as a percentage of the investment’s cost or market value.
+Example: A bond purchased for $1,000 that pays $50 annually has a yield of 5%.
+Related Keywords: Dividend, Return on Investment, Interest Rate
+
+Keyword: Inflation
+Definition: Inflation is the rate at which the general level of prices for goods and services is rising, and subsequently, purchasing power is falling.
+Example: If the inflation rate is 2%, what costs $100 today will cost $102 a year from now.
+Related Keywords: Price Stability, Economic Indicator, Purchasing Power
+
+Keyword: Risk Tolerance
+Definition: Risk tolerance is the degree of variability in investment returns that an individual is willing to withstand in their investment portfolio.
+Example: A young investor with a long time horizon might have a high risk tolerance, choosing to invest heavily in stocks, which are more volatile but offer higher potential returns.
+Related Keywords: Investment Strategy, Personal Finance, Portfolio Management
