@@ -240,32 +240,180 @@ from langchain import hub
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import SimpleJsonOutputParser
 
-# Menentukan nilai default untuk semua input kecuali {content}
-cod_chain_inputs = {
-    "content": lambda d: d.get("content"),
-    "content_category": lambda d: d.get("content_category", "Artikel"),
-    "entity_range": lambda d: d.get("entity_range", "1-3"),
-    "max_words": lambda d: int(d.get("max_words", 80)),
-    "iterations": lambda d: int(d.get("iterations", 5)),
-}
+# # Menentukan nilai default untuk semua input kecuali {content}
+# cod_chain_inputs = {
+#     "content": lambda d: d.get("content"),
+#     "content_category": lambda d: d.get("content_category", "Artikel"),
+#     "entity_range": lambda d: d.get("entity_range", "1-3"),
+#     "max_words": lambda d: int(d.get("max_words", 80)),
+#     "iterations": lambda d: int(d.get("iterations", 5)),
+# }
 
-# Mengunduh prompt Chain of Density
-cod_prompt = hub.pull("teddynote/chain-of-density-prompt")
+# # Mengunduh prompt Chain of Density
+# cod_prompt = hub.pull("teddynote/chain-of-density-prompt")
 
-# Membuat rantai Chain of Density
-cod_chain = (
-    cod_chain_inputs
-    | cod_prompt
-    | ChatOpenAI(temperature=0, model="gpt-4o-mini")
-    | SimpleJsonOutputParser()
-)
+# # Membuat rantai Chain of Density
+# cod_chain = (
+#     cod_chain_inputs
+#     | cod_prompt
+#     | ChatOpenAI(temperature=0, model="gpt-4o-mini")
+#     | SimpleJsonOutputParser()
+# )
 
-# Membuat rantai kedua, hanya mengekstrak ringkasan akhir (tidak bisa streaming, perlu hasil akhir)
-cod_final_summary_chain = cod_chain | (
-    lambda output: output[-1].get(
-        "denser_summary", 'Kesalahan: Kunci "denser_summary" tidak ada di kamus terakhir'
-    )
-)
+# # Membuat rantai kedua, hanya mengekstrak ringkasan akhir (tidak bisa streaming, perlu hasil akhir)
+# cod_final_summary_chain = cod_chain | (
+#     lambda output: output[-1].get(
+#         "denser_summary", 'Kesalahan: Kunci "denser_summary" tidak ada di kamus terakhir'
+#     )
+# )
 
-content = docs[1].page_content
-print(content)
+# content = docs[1].page_content
+# # print(content)
+
+# # Menginisialisasi daftar kosong untuk menyimpan hasil
+# results: list[dict[str, str]] = []
+
+# # Menjalankan cod_chain dalam mode streaming dan memproses hasil JSON parsial
+# for partial_json in cod_chain.stream(
+#     {"content": content, "content_category": "Artikel"}
+# ):
+#     # Memperbarui results di setiap iterasi
+#     results = partial_json
+
+#     # Mencetak hasil saat ini di baris yang sama (menggunakan carriage return untuk menimpa output sebelumnya)
+#     print(results, end="\r", flush=True)
+
+# # Menghitung total jumlah ringkasan
+# total_summaries = len(results)
+# print("\n")
+
+# # Mengiterasi setiap ringkasan untuk diproses
+# i = 1
+# for cod in results:
+#     # Menyaring dan memformat entitas yang hilang
+#     added_entities = ", ".join(
+#         [
+#             ent.strip()
+#             for ent in cod.get(
+#                 "missing_entities", 'ERR: Kunci "missing_entities" tidak ditemukan'
+#             ).split(";")
+#         ]
+#     )
+#     # Menyaring ringkasan yang lebih padat
+#     summary = cod.get("denser_summary", 'ERR: kunci "denser_summary" hilang')
+
+#     # Mencetak informasi ringkasan (nomor, total jumlah, entitas tambahan)
+#     print(
+#         f"### Ringkasan CoD {i}/{total_summaries}, entitas tambahan: {added_entities}"
+#         + "\n"
+#     )
+#     # Mencetak isi ringkasan dengan pemotongan 80 karakter
+#     print(textwrap.fill(summary, width=80) + "\n")
+#     i += 1
+
+# print("\n============== [Ringkasan Akhir] =================\n")
+# print(summary)
+
+from langchain_community.document_loaders import PyMuPDFLoader
+
+loader = PyMuPDFLoader("./chapter14/data/ChatGPT:Keuntungan,Risiko,DanPenggunaanBijakDalamEraKecerdasanBuatan.pdf") #sesuaikan path ke file
+docs = loader.load()
+print(len(docs))
+
+# Hubungkan semua dokumen dengan satu Teks.
+texts = "\n\n".join([doc.page_content for doc in docs])
+print(len(texts))
+
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
+split_docs = text_splitter.split_text(texts)
+print(len(split_docs))
+
+from langchain_openai import OpenAIEmbeddings
+
+# Membuat embedding menggunakan model "text-embedding-3-large" dari OpenAI.
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
+vectors = embeddings.embed_documents(split_docs)
+
+from sklearn.cluster import KMeans
+
+# Pilih jumlah cluster, yang dapat disesuaikan berdasarkan konten dokumen.
+num_clusters = 10
+
+# Lakukan pengelompokan K-means
+kmeans = KMeans(n_clusters = num_clusters, random_state = 123).fit(vectors)
+
+print(kmeans.labels_)
+
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Menghapus peringatan
+import warnings
+import numpy as np
+
+
+warnings.filterwarnings("ignore")
+
+# Melakukan t-SNE dan mengurangi dimensi menjadi 2
+# tsne = TSNE(n_components=2, random_state=42)
+# reduced_data_tsne = tsne.fit_transform(np.array(vectors))
+
+# # Mengatur gaya seaborn
+# sns.set_style("white")
+
+# # Memplot data yang telah direduksi
+# plt.figure(figsize=(10, 8))
+# sns.scatterplot(
+#     x=reduced_data_tsne[:, 0],
+#     y=reduced_data_tsne[:, 1],
+#     hue=kmeans.labels_,
+#     palette="deep",
+#     s=100,
+# )
+# plt.xlabel("Dimensi 1", fontsize=12)
+# plt.ylabel("Dimensi 2", fontsize=12)
+# plt.title("Embedding yang Dikelompokkan", fontsize=16)
+# plt.legend(title="Kluster", title_fontsize=12)
+
+# # Mengatur warna latar belakang
+# plt.gcf().patch.set_facecolor("white")
+
+# plt.tight_layout()
+# # plt.show()
+
+import numpy as np
+
+# Membuat daftar kosong untuk menyimpan indeks titik terdekat
+closest_indices = []
+
+# Mengulangi sebanyak jumlah kluster
+for i in range(num_clusters):
+
+    # Mendapatkan daftar jarak dari pusat kluster yang bersangkutan
+    distances = np.linalg.norm(vectors - kmeans.cluster_centers_[i], axis=1)
+
+    # Menemukan indeks titik terdekat (menggunakan argmin untuk mencari jarak minimum)
+    closest_index = np.argmin(distances)
+
+    # Menambahkan indeks tersebut ke dalam daftar indeks terdekat
+    closest_indices.append(closest_index)
+
+# Urutkan dalam urutan menaik untuk menjaga ringkasan dokumen tetap teratur
+selected_indices = sorted(closest_indices)
+print(selected_indices)
+
+from langchain_core.documents import Document
+
+selected_docs = [Document(page_content=split_docs[doc]) for doc in selected_indices]
+print(selected_docs)
+
+# Buatlah ringkasan menggunakan map_refine_chain yang telah Anda buat sebelumnya
+refined_summary = map_refine_chain.invoke(selected_docs)
+
+# Keluarkan hasil akhir
+print("refined summary")
+print(refined_summary)
